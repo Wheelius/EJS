@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EJS chapter 3 ex 3</title>
+	</head>
+	<body>
+		<script>
+			function countBs(name){
+				var count = 0;
+				for(var i=0 ; i<name.length ; ++i){
+					if( name.charAt(i) == "B" ){
+						count++;
+					}
+				}
+				return count;
+			}
+			function countChar(name,letter){
+				var count = 0;
+				for(var i=0 ; i<name.length ; ++i){
+					if( name.charAt(i) == letter ){
+						count++;
+					}
+				}
+				return count;
+			}
+			console.log(countBs('BBC'));
+			console.log(countChar("kakkerlak","k"));
+
+		</script>
+	</body>
+</html>
