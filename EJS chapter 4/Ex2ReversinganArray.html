@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EJS chapter 4 ex 2</title>
+	</head>
+	<body>
+		<script>
+			function reverseArray(array){
+				var newArray = [];
+				for(var i=0 ; i<array.length ; ++i){
+					newArray.unshift(array[i]);
+				}
+				return newArray;
+			}
+			function reverseArrayInPlace(array){
+				var temp;
+				for(var i=0 ; i<(array.length/2) ; ++i){
+					temp = array[i];
+					array[i] = array[array.length-1-i]
+					array[array.length-1-i] = temp;
+				}
+			}
+			console.log(reverseArray(['A','B','C']));
+			var arrayValue = [1,2,3,4,5];
+			reverseArrayInPlace(arrayValue);
+			console.log(arrayValue);
+		</script>
+	</body>
+</html>

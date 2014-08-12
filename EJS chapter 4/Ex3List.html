@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EJS chapter 4 ex 3</title>
+	</head>
+	<body>
+		<script>
+			function arrayToList(array){
+				var obj = null;
+				var leng = array.length;
+				for(var i=0 ; i<leng ; ++i){
+					obj = { value: array.pop(),
+							rest: obj }
+				}
+				return obj;
+			}
+			function listToArray(list){
+				var array=[];
+				continueyn ='y'
+				do{
+					array.push(list.value);
+					if(!list.rest){
+						continueyn = 'n';
+					}else{
+						list=list.rest;
+					}
+
+				} while (continueyn =='y');
+				return array;
+			}
+			function prepend(newitem,list){
+				var obj ={};
+				obj.value = newitem;
+				obj.rest =list;
+				return obj;
+			}
+			function nth(list,position){
+				var number;
+				for(var i=0 ; i<=position ; list=list.rest, ++i){
+					number=list.value;
+				}
+				return number;
+			}
+			
+			console.log(arrayToList([1,2,3]));
+			console.log(listToArray(arrayToList([10, 20, 30])));
+			console.log(prepend(10, prepend(20, null)));
+			console.log(nth(arrayToList([10, 20, 30]), 1));
+			
+		</script>
+	</body>
+</html>
