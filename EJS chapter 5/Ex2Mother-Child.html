@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EJS chapter 5 ex 2</title>
+		<script src="ancestry.js"></script>
+	</head>
+	<body>
+		<script>
+			var ancestry = JSON.parse(ANCESTRY_FILE);
+			function average(array) {
+			function plus(a, b) { return a + b; }
+			  return array.reduce(plus) / array.length;
+			}
+			var byName = {};
+			ancestry.forEach(function(person) {
+				byName[person.name] = person;
+			});
+
+			var ageDiff = []
+			for(var key in byName){
+				if(byName[key].mother){
+					if(byName[byName[key].mother]){
+						ageDiff.push((byName[key].born)-(byName[byName[key].mother].born));
+					}
+				}
+			}
+			
+			var totalAges = ageDiff.reduce(function(a,b){
+				return a+b;
+			})
+			totalAges = totalAges/ageDiff.length;
+			console.log(totalAges)
+		</script>
+	</body>
+</html>

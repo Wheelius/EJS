@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EJS chapter 5 ex 3</title>
+		<script src="ancestry.js"></script>
+	</head>
+	<body>
+		<script>
+			var ancestry = JSON.parse(ANCESTRY_FILE);
+			var death = {};
+			for(var key in ancestry){
+				var cent = Math.ceil(ancestry[key].died/100);
+				if(!death[cent]){
+					death[cent] = {total:ancestry[key].died - ancestry[key].born}
+					death[cent].count = 1;
+				} else {
+					death[cent].total = (death[cent].total+ancestry[key].died - ancestry[key].born)
+					death[cent].count++
+				}
+			}
+			//display
+			for(var key2 in death){
+				var av = (Math.round( (death[key2].total/death[key2].count)*10)/10 );
+				console.log( key2+": "+av );
+			}
+			
+		</script>
+	</body>
+</html>
